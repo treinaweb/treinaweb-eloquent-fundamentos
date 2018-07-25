@@ -14,6 +14,10 @@
 Route::get('/post/{post}', 'Site\PostController@show')->name('posts.show');
 Route::get('/', 'Site\PostController@index');
 
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('posts', 'Admin\PostController');
+});
+
 Route::get('/contato', function() {
     return view('contact.index');
 });
