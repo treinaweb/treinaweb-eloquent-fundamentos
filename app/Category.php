@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    protected $fillable = ['name', 'description'];
+
     /**
      * Mapeia o relacionamento com a tabela de posts
      *
@@ -13,6 +15,7 @@ class Category extends Model
      */
     public function posts()
     {
-        return $this->belongsTomany('App\Post', 'category_post', 'category_id', 'post_id');
+        return $this->belongsTomany('App\Post', 'category_post', 'category_id', 'post_id')
+                    ->withTimestamps();
     }
 }
