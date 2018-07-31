@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    /**
+     * Mapeia o relacionamento com a tabela de posts
+     *
+     * @return void
+     */
     public function posts()
     {
-        return $this->belongsTomany('App\Post');
+        return $this->belongsTomany('App\Post', 'category_post', 'category_id', 'post_id');
     }
 }
