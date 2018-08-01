@@ -22,6 +22,19 @@
     </div>
   </article>
 
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            @foreach($post->categories as $category)
+              <a href="#">{{ $category->name }}</a>
+            @endforeach
+          </p>
+        </div>
+      </div>
+  </div>
+
+
   <hr>
 
   <div class="container">
