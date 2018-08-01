@@ -11,6 +11,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')
+                    ->with('categories')
                     ->whereHas('details', function($query) {
                         $query->where('status', 'publicado')
                               ->where('visibility', 'publico');
