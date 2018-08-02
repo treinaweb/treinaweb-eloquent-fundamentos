@@ -11,11 +11,13 @@
     Postado por <a href="#">Treinaweb</a> em @datebr($post->created_at)
   </p>
 
-  <p class="post-meta">
-      Categorias: 
-      @foreach($post->categories as $category)
-        <a href="#">{{ $category->name }}</a>
-      @endforeach
+  @if (request()->query('categories'))
+    <p class="post-meta">
+        Categorias: 
+        @foreach($post->categories as $category)
+          <a href="#">{{ $category->name }}</a>
+        @endforeach
     </p>
+  @endif  
 </div>
 <hr>
